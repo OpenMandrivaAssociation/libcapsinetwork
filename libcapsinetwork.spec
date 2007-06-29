@@ -1,8 +1,9 @@
-%define	version	0.2.5
-%define release	2mdk
+%define	version	0.3.0
+%define release	%mkrel 1
 
 %define major	0
 %define libname %mklibname capsinetwork
+%define develname %mklibname -d capsinetwork
 
 Summary:	Network library for easy development of C++ server daemons
 Name:		libcapsinetwork
@@ -12,7 +13,6 @@ License:	LGPL
 Group:		System/Libraries
 URL:		http://unixcode.org/libcapsinetwork/
 Source0:	http://download.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
-Source1:	%{SOURCE0}.sig
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
@@ -30,14 +30,15 @@ Provides:	%{libname} = %{version}-%{release}
 development of server daemons.
 
 
-%package	-n %{libname}%{major}-devel
+%package	-n %{develname}
 Summary:	Development related files for %{name}
 Group:		Development/C++
 Provides:	%{name}-devel = %{version}-%{release}
 Provides:	%{libname}-devel = %{version}-%{release}
 Requires:	%{libname}%{major} = %{version}-%{release}
+Provides:	%{libname}%{major}-devel
 
-%description	-n %{libname}%{major}-devel
+%description	-n %{develname}
 %{name} is a network library for C++ server daemons aimed at easy
 development of server daemons.
 
@@ -67,7 +68,7 @@ rm -rf %{buildroot}
 %doc COPYING.LIB README
 %{_libdir}/lib*.so.*
 
-%files -n %{libname}%{major}-devel
+%files -n %{develname}
 %defattr(-,root,root)
 %doc ChangeLog NEWS
 %{_includedir}/*
