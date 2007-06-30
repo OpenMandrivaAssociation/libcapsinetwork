@@ -13,12 +13,12 @@ License:	LGPL
 Group:		System/Libraries
 URL:		http://unixcode.org/libcapsinetwork/
 Source0:	http://download.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
+Patch0:		libcapsinetwork-gcc43-includes.patch
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 %{name} is a network library for C++ server daemons aimed at easy
 development of server daemons.
-
 
 %package	-n %{libname}%{major}
 Summary:	Network library for easy development of C++ server daemons
@@ -36,7 +36,7 @@ Group:		Development/C++
 Provides:	%{name}-devel = %{version}-%{release}
 Provides:	%{libname}-devel = %{version}-%{release}
 Requires:	%{libname}%{major} = %{version}-%{release}
-Provides:	%{libname}%{major}-devel
+Obsoletes:	%{libname}%{major}-devel
 
 %description	-n %{develname}
 %{name} is a network library for C++ server daemons aimed at easy
@@ -47,9 +47,15 @@ any applications/libraries that needs %{name}.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
-%configure2_5x
+libtoolize --force --copy
+aclocal
+autoheader
+autoconf
+automake -a -c
+%configure2_5x --disable-static
 # parallel build won't work
 make
 
@@ -73,5 +79,5 @@ rm -rf %{buildroot}
 %doc ChangeLog NEWS
 %{_includedir}/*
 %{_libdir}/lib*.so
-%{_libdir}/lib*.a
+#%{_libdir}/lib*.a
 %{_libdir}/lib*.la
