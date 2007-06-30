@@ -15,6 +15,7 @@ URL:		http://unixcode.org/libcapsinetwork/
 Source0:	http://download.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 Patch0:		libcapsinetwork-gcc43-includes.patch
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires:	automake
 
 %description
 %{name} is a network library for C++ server daemons aimed at easy
