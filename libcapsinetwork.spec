@@ -1,5 +1,5 @@
 %define	version	0.3.0
-%define release	%mkrel 3
+%define release	%mkrel 4
 
 %define major	0
 %define libname %mklibname capsinetwork
@@ -48,7 +48,7 @@ any applications/libraries that needs %{name}.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch0 -p1 -b .gcc43
 
 %build
 libtoolize --force --copy
