@@ -1,0 +1,46 @@
+diff -p -up libcapsinetwork-0.3.0/src/listener.cpp.gcc43 libcapsinetwork-0.3.0/src/listener.cpp
+--- libcapsinetwork-0.3.0/src/listener.cpp.gcc43	2004-07-15 11:39:28.000000000 +0200
++++ libcapsinetwork-0.3.0/src/listener.cpp	2009-06-16 19:32:27.000000000 +0200
+@@ -31,6 +31,7 @@
+ 
+ #include <netdb.h>
+ #include <unistd.h>
++#include <stdlib.h>
+ 
+ #include "listener.h"
+ #include "listenport.h"
+diff -p -up libcapsinetwork-0.3.0/src/listenport.cpp.gcc43 libcapsinetwork-0.3.0/src/listenport.cpp
+--- libcapsinetwork-0.3.0/src/listenport.cpp.gcc43	2004-07-15 11:39:28.000000000 +0200
++++ libcapsinetwork-0.3.0/src/listenport.cpp	2009-06-16 19:32:27.000000000 +0200
+@@ -33,6 +33,8 @@
+ 
+ #include "listenport.h"
+ 
++#include <cstring>
++
+ #define	MAXLINE	1024
+ 
+ #ifdef USE_INET_ATON
+diff -p -up libcapsinetwork-0.3.0/src/server.cpp.gcc43 libcapsinetwork-0.3.0/src/server.cpp
+--- libcapsinetwork-0.3.0/src/server.cpp.gcc43	2004-07-15 11:39:28.000000000 +0200
++++ libcapsinetwork-0.3.0/src/server.cpp	2009-06-16 19:32:27.000000000 +0200
+@@ -26,6 +26,7 @@
+ 
+ #include <string>
+ #include <stdio.h>
++#include <stdlib.h>
+ 
+ // In real applications, use the following include instead of the local.
+ // #include <libcapsinetwork/socket.h>
+diff -p -up libcapsinetwork-0.3.0/src/socket.cpp.gcc43 libcapsinetwork-0.3.0/src/socket.cpp
+--- libcapsinetwork-0.3.0/src/socket.cpp.gcc43	2009-06-16 19:33:02.000000000 +0200
++++ libcapsinetwork-0.3.0/src/socket.cpp	2009-06-16 19:33:37.000000000 +0200
+@@ -28,6 +28,8 @@
+ 
+ #include "socket.h"
+ 
++#include <cstring>
++
+ extern int errno;
+ 
+ Socket::Socket( unsigned int fd )
