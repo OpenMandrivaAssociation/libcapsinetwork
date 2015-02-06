@@ -5,7 +5,7 @@
 Summary:	Network library for easy development of C++ server daemons
 Name:		libcapsinetwork
 Version:	0.3.0
-Release:	6
+Release:	7
 License:	LGPL
 Group:		System/Libraries
 URL:		http://unixcode.org/libcapsinetwork/
