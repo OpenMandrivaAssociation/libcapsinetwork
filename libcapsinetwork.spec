@@ -8,7 +8,7 @@ Version:	0.3.0
 Release:	7
 License:	LGPL
 Group:		System/Libraries
-URL:		http://unixcode.org/libcapsinetwork/
+URL:		https://unixcode.org/libcapsinetwork/
 Source0:	http://download.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 Patch0:		libcapsinetwork-gcc43-includes.patch
 BuildRequires:	automake
